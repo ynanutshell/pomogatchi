@@ -1,5 +1,7 @@
 "use strict";
-const shell = require("electron").shell;
+const shell = (typeof require === 'function') ? require('electron').shell : null;
+
+/* Timer Function */
 
 class Timer {
   constructor(minutes, seconds = 60) {
@@ -12,6 +14,7 @@ class Timer {
   }
 
   startTimer(display) {
+    notifyUser();
     this._initializePomotime();
     this.timer = this.pomodoroTime;
     clearInterval(this.pomodoroIntervalId);
@@ -41,6 +44,7 @@ class Timer {
   }
 
   resetTimer(selector) {
+    notifyUser();
     this.minutes = this.initialMinutes;
     this.seconds = this.initialSeconds;
     clearInterval(this.pomodoroIntervalId);
@@ -67,131 +71,84 @@ class Timer {
   }
 }
 
-class ThemeManager {
-  constructor() {
-    this.activeTheme = "light";
-    this.nodes = document.querySelectorAll("link[rel=stylesheet].alternate");
-    this.tabTitles = $(".nav > li > a");
-  }
+/* Modes */
 
-  toggleTheme() {
-    if (this.activeTheme === "light") {
-      this.activeTheme = "dark";
-      this.nodes.forEach(function (node) {
-        if (node.id === "dark") {
-          node.disabled = false;
-        } else {
-          node.disabled = true;
-        }
-      });
-      this.tabTitles.toggleClass("dark");
-    } else {
-      this.activeTheme = "light";
-      this.nodes.forEach(function (node) {
-        if (node.id === "light") {
-          node.disabled = false;
-        } else {
-          node.disabled = true;
-        }
-      });
-      this.tabTitles.toggleClass("dark");
-    }
+let normalTimer = new Timer(25);
+let shortBreak = new Timer(5);
+let longBreak = new Timer(10);
+
+var display = document.querySelector("#time");
+var display_short = document.querySelector("#break_short");
+var display_long = document.querySelector("#break_long");
+
+const timers = {
+  pomodoro: {
+    timer: normalTimer,
+    display: display,
+    selector: "#time",
+    label: "Pomodoro",
+  },
+  short: {
+    timer: shortBreak,
+    display: display_short,
+    selector: "#break_short",
+    label: "Short Break",
+  },
+  long: {
+    timer: longBreak,
+    display: display_long,
+    selector: "#break_long",
+    label: "Long Break",
   }
 }
 
-let themeManager = new ThemeManager();
+let mode = "pomodoro";
+const current = () => timers[mode];
 
-var display = document.querySelector("#time");
-var display_short = document.querySelector("#time_short");
-var display_long = document.querySelector("#time_long");
+/* Timer Functions */ 
 
 $(document).on("click", 'a[href^="http"]', function (event) {
   event.preventDefault();
   shell.openExternal(this.href);
 });
 
-let normalTimer = new Timer(25);
-
 $("#start").click(() => {
-  normalTimer.startTimer(display);
+  current().timer.startTimer(current().display);
   $("#stop").show();
   $("#start").hide();
 });
 
 $("#stop").click(() => {
-  normalTimer.stopTimer();
+  current().timer.stopTimer();
   $("#start").show();
   $("#stop").hide();
 });
 
 $("#reset").click(() => {
-  normalTimer.resetTimer("#time");
+  current().timer.resetTimer(current().selector);
 
   $("#start").show();
   $("#stop").hide();
 });
 
-let shortTimer = new Timer(5);
+const order = ["pomodoro", "short", "long"];
 
-$("#short_start").click(() => {
-  shortTimer.startTimer(display_short);
-  $("#short_stop").show();
-  $("#short_start").hide();
-});
+/* Mode Switching */
 
-$("#short_stop").click(() => {
-  shortTimer.stopTimer();
+$("#mode").click(() => {
+  // Stop any timer that might be running
+  current().timer.stopTimer();
 
-  $("#short_start").show();
-  $("#short_stop").hide();
-});
+  // Advance to the next mode
+  const currentIndex = order.indexOf(mode);
+  mode = order[(currentIndex + 1) % order.length];
 
-$("#short_reset").click(() => {
-  shortTimer.resetTimer("#time_short");
+  // Swap the visible pane
+  $(".tab-pane").removeClass("active in");
+  $("#" + mode).addClass("active in");
 
-  $("#short_start").show();
-  $("#short_stop").hide();
-});
-
-let longTimer = new Timer(10);
-
-$("#long_start").click(() => {
-  longTimer.startTimer(display_long);
-
-  $("#long_stop").show();
-  $("#long_start").hide();
-});
-
-$("#long_stop").click(() => {
-  longTimer.stopTimer();
-  $("#long_start").show();
-  $("#long_stop").hide();
-});
-
-$("#long_reset").click(() => {
-  longTimer.resetTimer("#time_long");
-
-  $("#long_start").show();
-  $("#long_stop").hide();
-});
-
-function closeApp() {
-  ipc.send("closeApp", "close");
-}
-
-function toggleTheme() {
-  themeManager.toggleTheme();
-}
-
-$('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
-  let activeTab = e.target.toString();
-  let nameActiveTab = activeTab.split("#");
-
-  if (nameActiveTab[1] == "pomodoro") {
-    normalTimer.resetTimer("#time");
-  } else if (nameActiveTab[1] == "short") {
-    shortTimer.resetTimer("#time_short");
-  } else {
-    longTimer.resetTimer("#time_long");
-  }
+  // Reset the selected mode
+  current().timer.resetTimer(current().selector);
+  $("#start").show();
+  $("#stop").hide();
 });

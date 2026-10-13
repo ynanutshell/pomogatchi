@@ -1,16 +1,22 @@
 "use strict";
 const electron = require("electron");
 const { menubar } = require("menubar");
-const ipcMain = require("electron").ipcMain;
 
 var mb = menubar({
   dir: __dirname,
-  tooltip: "Pomolectron",
-  icon: __dirname + "/res/tomato.png",
+  tooltip: "Pomogatchi",
+  icon: __dirname + "/img/pomodoro.png",
   browserWindow: {
-    width: 300,
-    height: 250,
+    width: 420,
+    height: 420,
+    skipTaskbar: true,
     alwaysOnTop: false,
+    transparent: true,
+    frame: false,
+    hasShadow: false,
+    resizable: false,
+    focusable: false,
+    roundedCorners: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -23,20 +29,12 @@ const contextMenu = electron.Menu.buildFromTemplate([
     label: "About",
     click() {
       electron.dialog.showMessageBox({
-        title: "Pomolectron",
+        title: "Pomogatchi",
         type: "info",
         message:
-          "A pomodoro app in your menubar/tray. \nMIT Copyright (c) 2017 Amit Merchant <bullredeyes@gmail.com>",
+          "A desktop pomodoro plant that thrives on your productivity.",
         buttons: ["Close"],
       });
-    },
-  },
-  {
-    label: "Website",
-    click() {
-      electron.shell.openExternal(
-        "https://github.com/amitmerchant1990/pomolectron",
-      );
     },
   },
   {
@@ -50,10 +48,6 @@ const contextMenu = electron.Menu.buildFromTemplate([
   },
 ]);
 
-ipcMain.on("closeApp", (event, close) => {
-  mb.app.quit();
-});
-
 mb.on("ready", () => {
   global.sharedObj = {
     hide: mb.hideWindow,
@@ -61,7 +55,7 @@ mb.on("ready", () => {
     pinned: false,
   };
 
-  console.log("Pomolectron is ready to serve in the menubar.");
+  console.log("Pomogatchi is planted in your menubar.");
 
   if (process.platform == "win32") {
     mb.tray.setContextMenu(contextMenu);

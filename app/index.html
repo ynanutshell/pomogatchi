@@ -1,144 +1,79 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Pomolectron </title>
+    <link rel="icon" type="image/x-icon" href="./img/pomodoro.ico">
+
+    <title>Pomogatchi</title>
 
     <!-- Bootstrap core styles -->
     <link href="styles/bootstrap.min.css" rel="stylesheet" id="light" class='alternate'>
-    <link href="styles/bootstrap.dark.min.css" rel="stylesheet" id="dark" class='alternate' disabled>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="styles/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="styles/starter-template.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Custom styles -->
+    <link href="styles/theme.css" rel="stylesheet">
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <svg class="stem" width="200" height="64" viewBox="0 0 841 262" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#paint0_angular_85_5019_clip_path)" data-figma-skip-parse="true"><g transform="matrix(-0.463651 -0.127923 0.127923 -0.463651 841.787 200.143)"><foreignObject x="-1783.25" y="-1783.25" width="3566.51" height="3566.51"><div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 90deg,rgba(130, 190, 136, 1) 0deg,rgba(116, 180, 123, 1) 144.328deg,rgba(97, 167, 104, 1) 360deg);height:100%;width:100%;opacity:1"></div></foreignObject></g></g><path d="M840.808 201C746.919 38.3805 538.978 -17.3371 376.359 76.5513C470.247 239.171 678.188 294.888 840.808 201Z" data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.50980395078659058,&#34;g&#34;:0.74509805440902710,&#34;b&#34;:0.53333336114883423,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.45792126655578613,&#34;g&#34;:0.70893740653991699,&#34;b&#34;:0.48302289843559265,&#34;a&#34;:1.0},&#34;position&#34;:0.40091150999069214},{&#34;color&#34;:{&#34;r&#34;:0.38039216399192810,&#34;g&#34;:0.65490198135375977,&#34;b&#34;:0.40784314274787903,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;transform&#34;:{&#34;m00&#34;:-927.30194091796875,&#34;m01&#34;:255.84629821777344,&#34;m02&#34;:1177.5148925781250,&#34;m10&#34;:-255.84629821777344,&#34;m11&#34;:-927.30194091796875,&#34;m12&#34;:791.71734619140625},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.50980395078659058,&#34;g&#34;:0.74509805440902710,&#34;b&#34;:0.53333336114883423,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.45792126655578613,&#34;g&#34;:0.70893740653991699,&#34;b&#34;:0.48302289843559265,&#34;a&#34;:1.0},&#34;position&#34;:0.40091150999069214},{&#34;color&#34;:{&#34;r&#34;:0.38039216399192810,&#34;g&#34;:0.65490198135375977,&#34;b&#34;:0.40784314274787903,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;visible&#34;:true}"/>
+      <g clip-path="url(#paint1_angular_85_5019_clip_path)" data-figma-skip-parse="true"><g transform="matrix(0.463651 -0.127923 -0.127923 -0.463651 -0.979439 200.143)"><foreignObject x="-1783.25" y="-1783.25" width="3566.51" height="3566.51"><div xmlns="http://www.w3.org/1999/xhtml" style="background:conic-gradient(from 90deg,rgba(130, 190, 136, 1) 0deg,rgba(116, 180, 123, 1) 144.328deg,rgba(97, 167, 104, 1) 360deg);height:100%;width:100%;opacity:1"></div></foreignObject></g></g><path d="M0 201C93.8884 38.3805 301.829 -17.3371 464.449 76.5513C370.56 239.171 162.619 294.888 0 201Z" data-figma-gradient-fill="{&#34;type&#34;:&#34;GRADIENT_ANGULAR&#34;,&#34;stops&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.50980395078659058,&#34;g&#34;:0.74509805440902710,&#34;b&#34;:0.53333336114883423,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.45792126655578613,&#34;g&#34;:0.70893740653991699,&#34;b&#34;:0.48302289843559265,&#34;a&#34;:1.0},&#34;position&#34;:0.40091150999069214},{&#34;color&#34;:{&#34;r&#34;:0.38039216399192810,&#34;g&#34;:0.65490198135375977,&#34;b&#34;:0.40784314274787903,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;transform&#34;:{&#34;m00&#34;:927.30194091796875,&#34;m01&#34;:-255.84622192382812,&#34;m02&#34;:-336.7072753906250,&#34;m10&#34;:-255.846191406250,&#34;m11&#34;:-927.30194091796875,&#34;m12&#34;:791.717285156250},&#34;opacity&#34;:1.0,&#34;blendMode&#34;:&#34;NORMAL&#34;,&#34;stopsVar&#34;:[{&#34;color&#34;:{&#34;r&#34;:0.50980395078659058,&#34;g&#34;:0.74509805440902710,&#34;b&#34;:0.53333336114883423,&#34;a&#34;:1.0},&#34;position&#34;:0.0},{&#34;color&#34;:{&#34;r&#34;:0.45792126655578613,&#34;g&#34;:0.70893740653991699,&#34;b&#34;:0.48302289843559265,&#34;a&#34;:1.0},&#34;position&#34;:0.40091150999069214},{&#34;color&#34;:{&#34;r&#34;:0.38039216399192810,&#34;g&#34;:0.65490198135375977,&#34;b&#34;:0.40784314274787903,&#34;a&#34;:1.0},&#34;position&#34;:1.0}],&#34;visible&#34;:true}"/>
+      <path d="M360.5 28H480.5V108H360.5V28Z" fill="#4F9656"/>
+      <path d="M480.5 108C480.5 123.464 453.637 136 420.5 136C387.363 136 360.5 123.464 360.5 108C360.5 92.536 387.363 80 420.5 80C453.637 80 480.5 92.536 480.5 108Z" fill="#4F9656"/>
+      <ellipse cx="420.5" cy="28" rx="60" ry="28" fill="#82BE88"/>
+      <defs>
+      <clipPath id="paint0_angular_85_5019_clip_path"><path d="M840.808 201C746.919 38.3805 538.978 -17.3371 376.359 76.5513C470.247 239.171 678.188 294.888 840.808 201Z"/></clipPath><clipPath id="paint1_angular_85_5019_clip_path"><path d="M0 201C93.8884 38.3805 301.829 -17.3371 464.449 76.5513C370.56 239.171 162.619 294.888 0 201Z"/></clipPath></defs>
+    </svg>
+    <div class="device">
+      <div class="tab-content">
+        <div id="pomodoro" class="tab-pane fade in active">
+          <div class="container">
+            <div class="starter-template">
+              <h1 id="time">25:00</h1>
+            </div>
+          </div>
+        </div>
+        <div id="short" class="tab-pane fade in">
+          <div class="container">
+            <div class="starter-template">
+              <h1 id="break_short">05:00</h1>
+            </div>
+          </div>
+        </div>
+        <div id="long" class="tab-pane fade in">
+          <div class="container">
+            <div class="starter-template">
+              <h1 id="break_long">10:00</h1>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle custom-btn" onclick="closeApp();" title="Close Pomolectron">
-            <i class="glyphicon glyphicon-off"></i>
-          </button>
-          <a href="https://github.com/amitmerchant1990/pomolectron" type="button" class="navbar-toggle custom-btn" title="About">
-            <i class="glyphicon glyphicon-info-sign"></i>
-          </a>
-          <button type="button" class="navbar-toggle custom-btn" onclick="toggleTheme();" title="Toggle theme">
-            <i class="glyphicon glyphicon-refresh"></i>
-          </button>
-          <a class="navbar-brand" href="#">Pomolectron</a>
-        </div>
-
-      </div>
-    </nav>
-
-    <ul class="nav nav-tabs">
-      <li class="active"><a data-toggle="tab" href="#pomodoro">Pomodoro</a></li>
-      <li><a data-toggle="tab" href="#short">Short break</a></li>
-      <li><a data-toggle="tab" href="#long">Long break</a></li>
-
-    </ul>
-    <div class="tab-content">
-      <div id="pomodoro" class="tab-pane fade in active">
-        <div class="container">
-
-          <div class="starter-template">
-            <h1 id="time">25:00</h1>
+        <div class="starter-template">
+          <div class="row">
+            <button type="button" class="btn btn-large btn-primary full-width" id="reset"><span class="glyphicon glyphicon-repeat"></span></button>
+            <button type="button" class="btn btn-large btn-primary btn-center full-width" id="start"><span class="glyphicon glyphicon-play"></span></button>
+            <button type="button" class="btn btn-large btn-primary btn-center full-width" id="stop" style="display: none;"><span class="glyphicon glyphicon-pause"></span></button>
+            <button type="button" class="btn btn-large btn-primary full-width" id="mode"><span class="glyphicon glyphicon-dashboard"></span></button>
           </div>
-
-        </div>
-
-        <div class="container">
-
-          <div class="starter-template">
-            <div class="row">
-              <div>
-                <button type="button" class="btn btn-large btn-primary full-width" id="start"><span class="glyphicon glyphicon-play"></span></button>
-
-                <button type="button" id="stop" class="btn btn-large btn-success full-width"><span class="glyphicon glyphicon-pause"></span></button>
-
-                <button type="button" class="btn btn-large btn-danger full-width" id="reset"><span class="glyphicon glyphicon-repeat"></span></button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div id="short" class="tab-pane fade in">
-        <div class="container">
-
-          <div class="starter-template">
-            <h1 id="time_short">05:00</h1>
-          </div>
-
-        </div>
-
-        <div class="container">
-
-          <div class="starter-template">
-            <div class="row">
-              <div>
-                <button type="button" class="btn btn-large btn-primary full-width" id="short_start"><span class="glyphicon glyphicon-play"></span></button>
-
-                <button type="button" class="btn btn-large btn-success full-width" id="short_stop"><span class="glyphicon glyphicon-pause"></span></button>
-
-                <button type="button" class="btn btn-large btn-danger full-width" id="short_reset"><span class="glyphicon glyphicon-repeat"></span></button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div id="long" class="tab-pane fade in">
-        <div class="container">
-
-          <div class="starter-template">
-            <h1 id="time_long">10:00</h1>
-          </div>
-
-        </div>
-
-        <div class="container">
-
-          <div class="starter-template">
-            <div class="row">
-              <div>
-                <button type="button" class="btn btn-large btn-primary full-width" id="long_start"><span class="glyphicon glyphicon-play"></span></button>
-
-                <button type="button" class="btn btn-large btn-success full-width" id="long_stop"><span class="glyphicon glyphicon-pause"></span></button>
-
-                <button type="button" class="btn btn-large btn-danger full-width" id="long_reset"><span class="glyphicon glyphicon-repeat"></span></button>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
 
-    <audio id='notiSound' src='audio/alert.wav' loop/>
+    <audio id='notiSound' src='audio/alert.wav'></audio>
 
     <script type="text/javascript">
     if (typeof module === 'object') {
       var electron = require('electron');
-      // Require in any additional modules that are Node.js only
       window.module = module;
       module = undefined;
     }
@@ -148,4 +83,5 @@
     <script src="scripts/notification.js"></script>
     <script src="scripts/app.js"></script>
   </body>
+
 </html>

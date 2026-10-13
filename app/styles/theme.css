@@ -1,0 +1,166 @@
+html, body {
+  background: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+/* Container Styling */
+
+.stem {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.device {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  padding: 48px 48px 40px 48px;
+  gap: 8px;
+  background: radial-gradient(99.41% 78.96% at 39.77% 26.01%, #FFA1CB 0%, #FF5CA6 50%, #D02372 100%);
+  border: 2px solid #D02372;
+  border-radius: 100%;
+  app-region: drag;
+}
+
+/* Display Styling */
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  aspect-ratio: 1/1;
+  background-color: #82BE88;
+  background-image: url("data:image/svg+xml,%3Csvg width='8' height='8' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.25' y='0.25' width='24' height='24' fill='%2382BE88'/%3E%3Crect x='0.25' y='0.25' width='24' height='24' stroke='%238AC690' stroke-width='0.5'/%3E%3C/svg%3E%0A");
+  background-repeat: repeat;
+  border: 1px solid #D02372;
+  box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 24px;
+}
+
+.starter-template {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 24px;
+}
+
+.full-width{
+  /*width:50% !important;*/
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+h1 {
+   font-size: 64px;
+}
+
+/* Button Styling */
+
+.btn-primary, .btn-secondary, .btn-danger {
+  width: 48px;
+  height: 48px;
+  aspect-ratio: 1/1;
+  margin: unset;
+  background: linear-gradient(143.85deg, #FFF069 0%, #ECD400 108.57%);
+  box-shadow: 0px 2.5px 0px #BFAC00;
+  border-radius: 100px;
+  border: unset;
+  app-region: no-drag;
+
+  .glyphicon {
+    color: #DFB600;
+    text-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background: linear-gradient(135deg, #ECD400 0%, #FFF069 100%);
+  box-shadow: 0px 2.5px 0px #BFAC00;
+}
+
+.btn-primary:active {
+  background: linear-gradient(135deg, #ECD400 0%, #FFF069 100%);
+  box-shadow: 0px 1.5px 0px #BFAC00;
+  transform: translateY(1px);
+}
+
+.btn-center {
+  margin-top: 24px;
+}
+
+.btn-success {
+  display: none;
+}
+
+.nav > li > a {
+    padding: 5px 5px !important;
+    margin-right: 0 !important;
+    color: black;
+}
+
+.nav > li > a.dark {
+  padding: 5px 5px !important;
+  margin-right: 0 !important;
+  color: white;
+}
+
+.nav-tabs > li {
+    /* width = (100 / number of tabs). This example assumes 3 tabs. */
+    width:33.33333%;
+    text-align: center;
+}
+
+.nav-tabs>li.active>a{
+  font-weight:bold;
+}
+
+.custom-btn{
+  color: #fff;
+  border-color: #fff;
+}
+
+.custom-btn:hover{
+  color: #fff;
+  border-color: #fff;
+}
+
+.navbar {
+  min-height:26px;
+  line-height:26px;
+}
+
+.navbar-brand{
+  float: none;
+  text-align: center;
+  height: 30px;
+  padding: 10px 15px;
+  line-height: 33px;
+}
+
+.navbar-toggle{
+  padding: 0px 8px;
+  margin-top: 4px;
+  margin-bottom: 3px;
+}
